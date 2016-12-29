@@ -20,6 +20,5 @@ int main()
 	year = 365.2422;
 
 	printf("%.4lf 일은 %d 일 %d 시간 %d 분 %.2lf 초 입니다.\n", year, day, hour, min, sec);
-	
 	return 0;
 }
