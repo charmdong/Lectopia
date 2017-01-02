@@ -2,7 +2,7 @@
 
 int main()
 {
-	int his, liter, art;
+	unsigned int his, liter, art;
 	int total = 0;
 	double avg = 0;
 
