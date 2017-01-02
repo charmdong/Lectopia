@@ -4,19 +4,13 @@
 
 int main()
 {
-	char ary[20];
-	char ary2[20] = { 0 };
-	char ary3[20] = { 0 };
-	int i;
-
+	char name[1000] = { 0 };
+	
 	printf("이름을 입력하시오 : ");
-	scanf("%[^\n]s", ary);
+	scanf("%s", name);
 
-	printf("\"%s\"\n", ary);
-	if (strlen(ary) < 19)
-	{
-		for (i = 19; i > 0; i--)
-			ary2[i] = ary[];
-	}
-
+	printf("\"%s\"\n", name);
+	printf("\"%20s\"\n", name);
+	printf("\"%-20s\"\n", name);
+	return 0;
 }

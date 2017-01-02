@@ -4,12 +4,10 @@
 
 int main()
 {
-	char family[20] = { 0 };
-	char name[20] = { 0 };
+	char family[1000] = { 0 };
+	char name[1000] = { 0 };
 	int len1, len2;
-	int i;
-
-	printf("<%s><%s>\n", family, name);
+	
 	printf("#성을 입력하시오 : ");
 	scanf("%s", family);
 	
@@ -20,13 +18,7 @@ int main()
 	len1 = strlen(family);
 	len2 = strlen(name);
 	
-	for (i = 1; i < len1; i++)
-		printf(" ");
-	printf("%d ", len1);
-
-	for (i = 1; i < len2; i++)
-		printf(" ");
-	printf("%d\n", len2);
+	printf("%*d %*d\n", len1, len1,len2,len2);
 
 	return 0;
 }
