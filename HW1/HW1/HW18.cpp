@@ -32,34 +32,33 @@ int input_num()
 
 void output(int x, int y)
 {
-	int fee;
-	int sale=0;
-	int total=0;
+	int fee; // 입장료
+	int sale; // 할인금액 : fee * 0.1
+	int total; // 결제금액 : fee-sale
 
-	if (x > 0 && x <= 7)
+	if (x <= 7)
 		fee = 500;
-	else if (x > 7 && x <= 13)
+	else if (x <= 13)
 		fee = 700;
-	else if (x > 13 && x <= 19)
+	else if (x <= 19)
 		fee = 1000;
-	else if (x > 19 && x <= 55)
+	else if (x <= 55)
 		fee = 1500;
-	else if (x > 55)
+	else // x > 55
 		fee = 500;
-	else
-		printf("ERROR\n");
+	
 
 	if (y < 5)
 	{
-		fee = fee * y;
+		fee = fee * y; 
+		sale = 0;
 		total = fee;
 	}
-	else
+	else // y >=5 
 	{
-		fee = fee * y;
-		total = fee;
+		fee = fee * y; 
 		sale = fee * 10 / 100;
-		total = total - sale;
+		total = fee - sale;
 	}
 	printf("입장료 => %d원\n", fee);
 	printf("할인금액 => %d원\n", sale);

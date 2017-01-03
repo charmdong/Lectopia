@@ -18,7 +18,7 @@ int input()
 {
 	int station;
 
-	printf("역수를 입력하세요 : ");
+	printf("역수를 입력하시오 : ");
 	scanf("%d", &station);
 
 	return station;
@@ -27,29 +27,31 @@ int input()
 int cal_fee(int x)
 {
 	int fee;
-	int over = 0; // 초과 정거장의 갯수
-	int tmp4; // 4정거장의 초과 정거장 발생시
-	int tmp2; // 2정거장의 초과 정거장 발생시
+	int over; // 초과 정거장의 갯수
+	int tmp4; // 초과 정거장의 수를 4로 나눈 몫
+	int rem; // 초과 정거장 수를 4로 나눈 나머지
 
-	if (x >= 1 && x < 6) // 1~5개 정거장의 경우
+	if (x < 6) // 1~5개 정거장의 경우
 		fee = 600;
-	else if (x >= 6 && x <= 10) // 6~10개 정거장의 경우
+	else if (x <= 10) // 6~10개 정거장의 경우
 		fee = 800;
-	else if (x > 10) // 10개 정거장 이상의 경우
+	else // 정거장의 수가 10개 초과인 경우
 	{
-		fee = 800; // 기본요금 8000원
+		fee = 800; // 기본요금 800원
 		over = x - 10; // 초과 정거장의 수
-		if (over == 1 || over == 2) // 초과 정거장의 개수가 1 or 2일 때
+		if (over <=2 ) // 초과 정거장의 개수가 1 or 2일 때
 			fee += 100;
-		else if (over == 3 || over == 4) // 초과 정거장수가 3 or 4일 때
+		else if (over <=4) // 초과 정거장수가 3 or 4일 때
 			fee += 200;
-		else if (over > 4) // 초과 정거장수가 4개 이상일 때
+		else // 초과 정거장수가 4개 이상일 때
 		{
 			tmp4 = over / 4; // tmp4 : 초과 정거장수를 4로 나눈 몫
-			over = over - tmp4 * 4; 
-			if (over == 1 || over == 2)
+			rem = over - tmp4 * 4; //초과 정거장수를 4로 나눈 나머지
+			if (rem == 0)
+				fee = fee + tmp4 * 200;
+			else if(rem <= 2)
 				fee = fee + tmp4 * 200 + 100;
-			else if (over == 3)
+			else // if (rem == 3)
 				fee = fee + tmp4 * 200 + 200;
 		}
 	}
@@ -58,5 +60,5 @@ int cal_fee(int x)
 
 void output(int result)
 {
-	printf("요금 : %d\n", result);
+	printf("요금 : %d원\n", result);
 }

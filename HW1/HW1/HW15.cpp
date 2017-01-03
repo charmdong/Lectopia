@@ -2,7 +2,7 @@
 
 double input_weight();
 double input_height();
-double bmi_ac(double,double);
+double bmi_ac(double,double); // BMI 계산 함수
 void output(double);
 
 int main()
@@ -49,12 +49,12 @@ void output(double x)
 {
 	if (x < 18.5)
 		printf("당신은 BMI지수는 %.1lf으로 저체중입니다.\n",x);
-	else if(x >=18.5 && x<25.0)
+	else if(x<25.0)
 		printf("당신은 BMI지수는 %.1lf으로 정상체중입니다.\n", x);
-	else if(x>= 25.0 && x<30.0)
+	else if(x<30.0)
 		printf("당신은 BMI지수는 %.1lf으로 과체중입니다.\n", x);
-	else if(x>=30.0 && x<40.0)
+	else if(x<40.0)
 		printf("당신은 BMI지수는 %.1lf으로 비만입니다.\n", x);
-	else if(x>40.0)
+	else // x > 40
 		printf("당신은 BMI지수는 %.1lf으로 고도비만입니다.\n", x);
 }
