@@ -30,7 +30,7 @@ int cal_total(int time)
 	if (time <= 40)
 		total = time * 3000;
 	else // time > 40
-		total = 40 * 3000 + (time - 40) * 3000 * 1.5;
+		total = 40 * 3000 + (time - 40) * 3000 * 15 / 10;
 	
 	return total;
 }
