@@ -5,9 +5,6 @@
 int random(int);
 int input();
 void output(int,int);
-int win_case(int, int);
-int lose_case(int, int);
-int draw_case(int, int);
 void myflush();
 
 int main()
@@ -15,16 +12,19 @@ int main()
 	int res;
 	int num;
 	int win=0, lose=0, draw=0;
+	
 	srand((unsigned int)time(NULL));
 	while (1)
 	{
 		num = input();
 		res = random(3);
 		output(res, num);
-	
-		win += win_case(res, num);
-		lose += lose_case(res, num);
-		draw += draw_case(res, num);
+		if ((num == 1 && res == 2) || (num == 2 && res == 3) || (num == 3 && res == 1))
+			win += 1;
+		else if((num == 2 && res == 1) || (num == 3 && res == 2) || (num == 1 && res == 3))
+			lose += 1;
+		else
+			draw += 1;
 		
 		if (lose == 1)
 			break;
@@ -38,21 +38,17 @@ int main()
 int random(int n)
 {
 	int res;
-	res = rand() % (n + 1);
-
-	if (res == 0)
-		res = random(n);
-
-	return res;
+	res = rand() % n;
+	return res+1;
 }
 
 int input()
 {
 	int num;
-	printf("# 바위는 1, 가위는 2, 보는 3 중에서 선택하세요 : ");
 	
 	while (1)
 	{
+		printf("# 바위는 1, 가위는 2, 보는 3 중에서 선택하세요 : ");
 		if (scanf("%d", &num) == 1) // 정상 입력
 		{
 			if (num >= 1 && num <= 3) // 정상 입력
@@ -93,30 +89,6 @@ void output(int res, int num)
 		else
 			printf("당신은 바위 선택, 컴퓨터는 보 선택 : 당신이 졌습니다.\n");
 	}
-}
-
-int win_case(int res, int num)
-{
-	if ((num == 1 && res == 2) || (num == 2 && res == 3) || (num == 3 && res == 1))
-		return 1;
-	else
-		return 0;
-}
-
-int lose_case(int res, int num)
-{
-	if ((num == 2 && res == 1) || (num == 3 && res == 2) || (num == 1 && res == 3))
-		return 1;
-	else
-		return 0;
-}
-
-int draw_case(int res, int num)
-{
-	if (res == num)
-		return 1;
-	else
-		return 0;
 }
 
 void myflush()

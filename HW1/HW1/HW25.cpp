@@ -9,11 +9,8 @@ void myflush();
 
 int main()
 {
-	int res;
-	int num;
-	int max = 101;
-	int min = 0;
-	int cnt = 1;
+	int res,num;
+	int max = 101, min = 0, cnt = 1;
 
 	srand((unsigned int)time(NULL));
 	res = random(100);
@@ -30,7 +27,7 @@ int main()
 			(num < max) ? max = num : max = max;
 		else
 			(num > min) ? min = num : min = min;
-		output(res, num,max,min);
+		output(res,num,max,min);
 		cnt++;
 	}
 }
@@ -38,12 +35,8 @@ int main()
 int random(int n)
 {
 	int res;
-	res = rand() % (n+1);
-	
-	if (res == 0)
-		res = random(n);
-	
-	return res;
+	res = rand() % n;
+	return res+1;
 }
 
 int input()
