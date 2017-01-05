@@ -28,9 +28,9 @@ int escape(int x)
 	if (x == 0)
 		cnt = 0;
 	
-	else
+	else // ±Ì¿Ã∞° 0¿Ã æ∆¥“ ∂ß
 	{
-		for (;;)
+		while(1)
 		{
 			cnt++;
 			x = x - 50;
