@@ -56,12 +56,13 @@ int input(char * message)
 int calc(int code, int use)
 {
 	int total;
+	int family = 50, indus = 45, pub = 30;
 	if (code == 1)
-		total = (use * 50) * 105 / 100;
+		total = use * family * 105 / 100;
 	else if (code == 2)
-		total = (use * 45) * 105 / 100;
+		total = use * indus * 105 / 100;
 	else
-		total = (use * 30) * 105 / 100;
+		total = use * pub * 105 / 100;
 	return total;
 }
 

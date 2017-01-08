@@ -4,6 +4,7 @@ int transNumber(int);
 void output(int, int, int);
 int gozipCnt(int);
 int inputUnit(char*);
+int inputGozip(char*);
 void myflush();
 
 int main()
@@ -13,7 +14,7 @@ int main()
 	
 	start = inputUnit("시작 값(P1) : ");
 	end = inputUnit("끝 값(P2) : ");
-	num = inputUnit("고집수(N) : ");
+	num = inputGozip("고집수(N) : ");
 	output(start, end, num);
 
 	return 0;
@@ -92,15 +93,40 @@ int inputUnit(char* message) // 입력함수
 	while (1)
 	{
 		printf(message);
-		if (scanf("%d", &num) == 1) // 정상 입력
+		if (scanf("%d", &num) == 1 && getchar() == '\n') // 정상 입력
 		{
-			if ((num >= 100 && num <= 10000) ||(num>=1&&num<=10)) // 정상 입력 경우
+			if (num >= 100 && num <= 10000) // 정상 입력 경우
 				break;
 			else // 범위 외 입력
-				myflush();
+				printf("\n* 잘못된 범위의 입력입니다.\n\n");
 		}
 		else // 문자 입력
+		{
 			myflush();
+			printf("\n* 정수만 입력해주세요.\n\n");
+		}
+	}
+	return num;
+}
+
+int inputGozip(char* message) //고집수 입력함수
+{
+	int num;
+	while (1)
+	{
+		printf(message);
+		if (scanf("%d", &num) == 1 && getchar() == '\n') // 정상 입력
+		{
+			if (num >= 1 && num <= 10) // 정상 입력 경우
+				break;
+			else // 범위 외 입력
+				printf("\n* 잘못된 범위의 입력입니다.\n\n");
+		}
+		else // 문자 입력
+		{
+			myflush();
+			printf("\n* 정수만 입력해주세요.\n\n");
+		}
 	}
 	return num;
 }
