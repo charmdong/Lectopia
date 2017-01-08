@@ -20,17 +20,17 @@ int main()
 	switch (code)
 	{
 	case 1:	use = input("* 사용량을 입력하시오(ton단위) : ");
-				total = calc(code, use);
-				output(code, use, total);
-				break;
+		total = calc(code, use);
+		output(code, use, total);
+		break;
 	case 2:	use = input("* 사용량을 입력하시오(ton단위) : ");
-				total = calc(code, use);
-				output(code, use, total);
-				break;
+		total = calc(code, use);
+		output(code, use, total);
+		break;
 	case 3:	use = input("* 사용량을 입력하시오(ton단위) : ");
-				total = calc(code, use);
-				output(code, use, total);
-				break;
+		total = calc(code, use);
+		output(code, use, total);
+		break;
 	}
 	return 0;
 }
@@ -42,7 +42,7 @@ int input(char * message)
 	while (1)
 	{
 		printf(message);
-		if (scanf("%d", &code) == 1)// 정수 입력
+		if (scanf("%d", &code) == 1 && getchar() == '\n')// 정수 입력
 			break;
 		else // 문자 입력
 		{
@@ -59,9 +59,9 @@ int calc(int code, int use)
 	if (code == 1)
 		total = (use * 50) * 105 / 100;
 	else if (code == 2)
-		total = (use * 45) * 105 /100;
+		total = (use * 45) * 105 / 100;
 	else
-		total = (use * 30) * 105 /100;
+		total = (use * 30) * 105 / 100;
 	return total;
 }
 
