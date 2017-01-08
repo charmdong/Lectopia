@@ -24,11 +24,11 @@ int main()
 		printf("3.특정 bit 값을 0으로 만들기\n");
 		printf("4.MSB~특정 위치 bit를 모두 0으로 만들기\n");
 		printf("5.특정 위치 bit~LSB를 모두 0으로 만들기\n");
-		printf("6.특정 bit를 원하는 값으로 변경하기 (0 ro 1)\n");
+		printf("6.특정 bit를 원하는 값으로 변경하기 (0 or 1)\n");
 		printf("7.종료\n");
 		printf("메뉴를 선택하세요 : ");
 		
-		if (scanf("%d", &choice) == 1)
+		if (scanf("%d", &choice) == 1) // 정수 입력시
 		{
 			switch (choice)
 			{
