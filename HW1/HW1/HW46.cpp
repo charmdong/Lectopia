@@ -11,12 +11,19 @@ int main()
 	int i,res;
 	char choice;
 
-	input("# 시작 값을 입력하시오 : ", &start);
 	while (1)
 	{
-		input("# 끝 값을 입력하시오 : ", &end);
-		if (end > start)
+		input("# 시작 값을 입력하시오 : ", &start);
+		if (start > 0)
+		{
+			while (1)
+			{
+				input("# 끝 값을 입력하시오 : ", &end);
+				if (end > start)
+					break;
+			}
 			break;
+		}
 	}
 	odd_even(&choice, start, end);
 	output(choice, start, end);
@@ -87,7 +94,6 @@ void output(char choice, int start, int end)
 	}
 	return;
 }
-
 
 void flush()
 {
