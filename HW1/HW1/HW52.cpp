@@ -4,7 +4,7 @@ void swap(int *,int);
 
 int main()
 {
-	int a[] = { 1,2,3,4,5};
+	int a[] = { 1,2,3,4,5,6,7,8,9};
 	int i, size;
 	size = sizeof(a) / sizeof(a[0]); // 배열 요소의 개수
 	printf("처음 배열에 저장된 값 : ");

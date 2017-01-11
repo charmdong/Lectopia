@@ -16,19 +16,14 @@ int main()
 		if (res == 1) // 정상 입력
 		{
 			check = strcheck(str, ch, - 1);
-			if (check != -1) // 문자열에 찾는 문자가 있는 경우
+			if (check != -1)   // 문자열에 찾는 문자가 있는 경우
 			{
-				printf("\"%s\" 문자열 안에 '%c' 문자는 %d번 위치 ", str, ch, check);
-				while (1)
+				printf("\"%s\" 문자열 안에 '%c' 문자는 <%d번> 위치 ", str, ch, check);
+				while (check != -1)   // 다중 문자 검색
 				{
+					check = strcheck(str, ch, check);
 					if (check != -1)
-					{
-						check = strcheck(str, ch, check);
-						if (check == -1)
-							break;
-						else
-							printf("%d번 위치 ", check);
-					}
+						printf("<%d번> 위치 ", check);
 					else
 						break;
 				}

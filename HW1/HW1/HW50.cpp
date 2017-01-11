@@ -3,6 +3,7 @@
 void input(double *);
 double max_calc(double*);
 double min_calc(double *);
+void output(double,double);
 void flush();
 
 int main()
@@ -12,10 +13,8 @@ int main()
 	input(num);
 	max = max_calc(num);
 	min = min_calc(num);
+	output(max,min);
 	
-	printf("\n");
-	printf("가장 큰 값 : %.2lf\n", max);
-	printf("가장 작은 값 : %.2lf\n\n", min);
 	return 0;
 }
 
@@ -65,6 +64,13 @@ double min_calc(double *num)
 		}
 	}
 	return num[res];
+}
+
+void output(double max, double min)
+{
+	printf("\n가장 큰 값 : %.2lf\n", max);
+	printf("가장 작은 값 : %.2lf\n\n", min);
+	return;
 }
 
 void flush()
