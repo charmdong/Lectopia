@@ -32,6 +32,7 @@ int main()
 		printf("\n  2 배 값이 존재하는 원소의 개수는 %d 개 입니다.\n\n", cnt);
 		cnt = 0;
 	}	
+	fclose(fp);
 	return 0;
 }
 
