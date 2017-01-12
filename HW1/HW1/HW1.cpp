@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-void printAge(int);
-void printHeight(double);
+void printAge(int);			// printAge 함수 선언부
+void printHeight(double); // printHeight 함수 선언부
 
 int main()
 {
@@ -15,12 +15,12 @@ int main()
 	return 0;
 }
 
-void printAge(int age)
+void printAge(int age) // printAge 함수 정의부 parameter : int형 변수
 {
 	printf("나이 : %d \n", age);
 }
 
-void printHeight(double height)
+void printHeight(double height) // printHeight 함수 정의부 parameter : double형 변수
 {
 	printf("키 : %.1lf \n", height);
 }

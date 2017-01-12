@@ -14,6 +14,7 @@ int main()
 	srand((unsigned int)time(NULL));
 	resetRand(ary);
 	output(ary);
+	printf("\n");
 	return 0;
 }
 

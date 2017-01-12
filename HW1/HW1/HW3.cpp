@@ -2,7 +2,7 @@
 
 int main()
 {
-	int time = 54321; // second
+	/*int time = 54321; // second
 
 	int hour, min, sec; 
 
@@ -16,5 +16,6 @@ int main()
 
 	printf("54321초는 %d시간 %d분 %d초입니다.\n", hour, min, sec);
 	return 0;
-	
+	*/
+	printf("%d", sizeof(long));
 }

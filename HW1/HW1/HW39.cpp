@@ -21,6 +21,6 @@ int main()
 		}
 	}
 END:
-		printf("  근무일 : %d 일 / 총 금화수 : %d\n\n",num, total);
+	printf("  근무일 : %d 일 / 총 금화수 : %d\n\n",num, total);
 	return 0;
 }

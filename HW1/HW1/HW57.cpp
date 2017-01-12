@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void inputStr(char*str);
+int inputStr(char*str);
 int checkPalin(char* str, int len);
 void output(char *str, int res);
 void flush();
@@ -12,28 +12,25 @@ int main()
 	char string[1000];
 	char cmp[1000] = { 0 };
 	int len, res;
-	while (1)
+	while (inputStr(string))
 	{
-		inputStr(string);
 		strcpy(cmp, string);
-		if (strcmp(string, "end") == 0)
-			break;
-		else
-		{
-			len = strlen(string);
-			res = checkPalin(string, len);
-			output(cmp, res);
-		}
-		printf("\n");
+		len = strlen(string);
+		res = checkPalin(string, len);
+		output(cmp, res);
 	}
+	
 	return 0;
 }
 
-void inputStr(char *str)
+int inputStr(char *str)
 {
 	printf("# 단어 입력 : ");
 	scanf("%s", str);
-	return;
+	if (strcmp(str, "end") == 0)
+		return 0;
+	else
+		return 1;
 }
 
 int checkPalin(char *str,int len)
@@ -55,9 +52,9 @@ int checkPalin(char *str,int len)
 void output(char *str,int res)
 {
 	if (res == 1) //회문인 경우
-		printf(" \"%s\" : 회문입니다!\n", str);
+		printf(" \"%s\" : 회문입니다!\n\n", str);
 	else
-		printf(" \"%s\" : 회문이 아닙니다!\n", str);
+		printf(" \"%s\" : 회문이 아닙니다!\n\n", str);
 	return;
 }
 
