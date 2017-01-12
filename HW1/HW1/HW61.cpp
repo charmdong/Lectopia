@@ -33,7 +33,7 @@ void sortString(char(*str)[20])
 	{
 		for (j = i + 1; j < 5; j++)
 		{
-			if (str[i][0] > str[j][0])
+			if (strcmp(str[i],str[j])>0)
 			{
 				strcpy(tmp, str[i]);
 				strcpy(str[i], str[j]);
