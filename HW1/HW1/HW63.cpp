@@ -73,6 +73,7 @@ void output(int *num,int size, int max)
 	for (i = 0; i < size; i++)
 		printf("%2d", num[i]);
 	printf("\n");
+	printf("---------------------------------------------------------------------------\n");
 	return;
 }
 
