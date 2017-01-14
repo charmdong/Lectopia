@@ -77,17 +77,14 @@ int inputNum(int *ary,int *cntAry,int cnt)
 				break;
 			}
 			else // 정상 입력
-			{
-				tmp = ary[i];
-				cntAry[tmp]++;
-			}
+				cntAry[ary[i]]++;
 		}
 	}
 	
 	return res;
 }
 
-int diffCnt(int *cntArray,int cnt)
+int diffCnt(int *cntArray,int cnt) // 서로 다른 개수 구하는 함수
 {
 	int i;
 	int diff_cnt = 0;
@@ -99,7 +96,7 @@ int diffCnt(int *cntArray,int cnt)
 	return diff_cnt;
 }
 
-void reset(int *cntAry,int size)
+void reset(int *cntAry,int size) // 배열 초기화 함수
 {
 	int i;
 	for (i = 0; i < size; i++)
