@@ -38,12 +38,7 @@ int main()
 
 int availabilityCheck(char *resident_number)
 {
-	int res = 0;
-	res += checkLengthCharacter(resident_number);
-	res += checkDate(resident_number);
-	res += checkGender(resident_number);
-	res += checkIdentification(resident_number);
-	if (res == 4)
+	if(checkLengthCharacter(resident_number) + checkDate(resident_number) + checkGender(resident_number) + checkIdentification(resident_number)==4)
 		return TRUE;
 	else
 		return FALSE;
