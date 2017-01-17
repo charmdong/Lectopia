@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char* ustrchr(char *str, char ch);
+char* ustrchr(char *str, int ch);
 char* ustrcat(char *s1, char *s2);
 char* ustrstr(char *s1, char *s2);
 void ustrcpy(char *s1, char *s2);
@@ -13,7 +13,7 @@ int main()
 	char str[100];
 	char s1[100];
 	char s2[100];
-	char ch;
+	int ch;
 	
 	int choice;
 
@@ -23,7 +23,7 @@ int main()
 		char s1[100] = "Lectopia";
 		char s2[100] = "C Program";
 		char s3[100] = "lectopia";
-		char s4[100] = "pia";
+		char s4[100] = "pi";
 		char ch='S';
 
 		printf("----------------MENU----------------\n");
@@ -40,32 +40,32 @@ int main()
 		switch (choice) {
 		case 1:printf("\n### ustrchr TEST ###\n");
 			printf("# str : %s, ch : %c\n",str,ch);
-			printf("# Result : %s\n\n", ustrchr(str, ch));
+			printf("# Result (찾고자 하는 문자와 일치하는 부분부터 출력) : %s\n\n", ustrchr(str, ch));
 			break;
 		case 2:printf("\n### ustrcat TEST ###\n");
 			printf("# s1 : %s, s2 : %s\n",s1,s2);
-			printf("# Result : %s\n\n", ustrcat(s1, s2));
+			printf("# Result (이어 붙인 결과) : %s\n\n", ustrcat(s1, s2));
 			break;
 		case 3:printf("\n### ustrstr TEST ###\n");
 			printf("# s1 : %s, s4 : %s\n", s1, s4);
-			printf("# Result : %s\n\n", ustrstr(s1, s4));
+			printf("# Result (찾고자 하는 부분 문자열과 일치하는 부분부터 출력) : %s\n\n", ustrstr(s1, s4));
 			break;
 		case 4:printf("\n### ustrcpy TEST ###\n");
 			printf("# s1 : %s, s2 : %s\n", s1, s2);
 			ustrcpy(s1, s2);
-			printf("# Result : %s\n\n",s1);
+			printf("# Result (s2를 s1에 복사한 결과) : %s\n\n",s1);
 			break;
 		case 5:printf("\n### ustrlen TEST ###\n");
 			printf("# str : %s\n", str);
-			printf("# 이 문자열의 길이는 : %d\n\n", ustrlen(str));
+			printf("# Result (문자열의 길이) : %d\n\n", ustrlen(str));
 			break;
 		case 6:printf("\n### ustrcmp TEST ###\n");
 			printf("# s1 : %s, s3 : %s\n", s1, s3);
-			printf("[ r : 1 => s1 > s2, r : 0 => s1 == s2, r : -1 => s1 < s2 ]\n");
+			printf("[ r : 1 => s1 > s3, r : 0 => s1 == s3, r : -1 => s1 < s3 ]\n");
 			printf("# Result : %d\n\n", ustrcmp(s1, s3));
 			break;
 		case 7:printf("# Exit the TEST Program !\n\n"); break;
-		default: printf("잘못 입력하셨습니다.\n");
+		default: printf("잘못 입력하셨습니다.\n\n");
 		}
 		if (choice == 7)
 			break;
@@ -77,7 +77,7 @@ int main()
 ||	str 문자열 내에 문자 ch가 있으면 찾은 위치의 주소를 리턴		||
 ||	못찾으면 NULL pointer 반환											||
 \*--------------------------------------------------------------*/
-char *ustrchr(char *str, char ch)
+char *ustrchr(char *str, int ch)
 {
 	int len = ustrlen(str);
 	int i;

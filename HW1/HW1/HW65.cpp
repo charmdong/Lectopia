@@ -51,8 +51,6 @@ void changeStr(int num, char *str)  // str[11]
 	len = strlen(str); // 문자열 길이
 	loca = len % 3; //	콤마 찍히기 시작하는 위치
 	
-	
-	
 	if (len > 3)
 	{	
 		if (loca != 0) 

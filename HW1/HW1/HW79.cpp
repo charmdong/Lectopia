@@ -3,8 +3,8 @@
 #include <string.h>
 #include <assert.h>
 
-void swapStr(char *p[5]);
-void outputRes(char *p[5]);
+void swapStr(char **p);
+void outputRes(char **p);
 void reset(char *temp,int len);
 
 int main()
@@ -23,7 +23,6 @@ int main()
 		strcpy(p[i], temp);
 		reset(temp, len - 1);
 	}
-	printf("\n");
 	swapStr(p);
 	outputRes(p);
 
@@ -33,7 +32,7 @@ int main()
 	return 0;
 }
 
-void swapStr(char *p[5])
+void swapStr(char **p)
 {
 	int i,j, res;
 	char *tmp;
@@ -52,11 +51,13 @@ void swapStr(char *p[5])
 	return;
 }
 
-void outputRes(char *p[5])
+void outputRes(char **p)
 {
 	int i;
+	printf("\n");
 	for (i = 0; i < 5; i++)
 		printf("%d.  %s\n", i+1,p[i]);
+	printf("\n");
 	return;
 }
 

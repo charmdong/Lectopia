@@ -63,23 +63,30 @@ void checkJolly(int *jollyNum,int indexCnt)
 {
 	int i,diff,res=1;
 	int cnt[101] = { 0 };
-	for (i = 0; i < indexCnt-1; i++)
+	if (indexCnt == 0)
+		printf("이건 졸리가 맞는 것도 아닌 것도 아니여....\n");
+	else if (indexCnt == 1)
+		printf("\t<Jolly Jumper>\n");
+	else 
 	{
-		diff = absNum(jollyNum[i] - jollyNum[i + 1]);
-		cnt[diff]++;
-	}
-	for (i = 1; i < indexCnt; i++)
-	{
-		if (cnt[i] != 1)
+		for (i = 0; i < indexCnt - 1; i++)
 		{
-			res = 0;
-			break;
+			diff = absNum(jollyNum[i] - jollyNum[i + 1]);
+			cnt[diff]++;
 		}
+		for (i = 1; i < indexCnt; i++)
+		{
+			if (cnt[i] != 1)
+			{
+				res = 0;
+				break;
+			}
+		}
+		if (res)
+			printf("<Jolly Jumper>\n");
+		else
+			printf("<Not Jolly Jumper>\n");
 	}
-	if(res)
-		printf("(Jolly Jumper)\n");
-	else
-		printf("(Not Jolly Jumper)\n");
 	return;
 }
 

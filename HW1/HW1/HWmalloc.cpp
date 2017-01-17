@@ -40,9 +40,6 @@ int*** myAlloc(int plane, int row, int col)
 	{
 		p[i] = (int**)malloc(sizeof(int*)*row);
 		assert(p[i] != NULL);
-	}
-	for (i = 0; i < plane; i++)
-	{
 		for (j = 0; j < row; j++)
 		{
 			p[i][j] = (int*)malloc(sizeof(int)*col);
