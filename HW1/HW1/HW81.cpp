@@ -169,29 +169,39 @@ void trainBing(int **bing, int num)
 	int bingCnt = 0;
 	while (1)
 	{
-		printf("\n# 지울 숫자를 입력하세요 : ");
+		int res = -1;
+		printf("\n# 지울 숫자를 입력하세요 (문자 입력시 메뉴로 돌아감) : ");
 		if (scanf("%d", &del))
 		{
-			if (checkdel(bing, num, del)) // 지우지 않은 경우
+			if (del >= 1 && del <= num*num)
 			{
-				for (i = 0; i < num; i++)
+				if (checkdel(bing, num, del)) // 지우지 않은 경우
 				{
-					for (j = 0; j < num; j++)
+					for (i = 0; i < num; i++)
 					{
-						if (bing[i][j] == del) 						
-							bing[i][j] = 'X';
+						for (j = 0; j < num; j++)
+						{
+							if (bing[i][j] == del) {
+								bing[i][j] = 'X';
+								res = 0;
+							}
+						}
+					}
+					bingCnt = checkBing(bing, num);
+					displayBing(bing, num);
+					printf("* 현재 빙고 개수 : %d\n", bingCnt);
+					if (bingCnt == num) {
+						printf("\n### 빙고 개수 : %d 개, 게임 끝! ###\n\n", bingCnt);
+						delBing(bing, num); // 동적 메모리 할당 해제
+						break;
 					}
 				}
-				bingCnt = checkBing(bing, num);
-				displayBing(bing, num);
-				printf("* 현재 빙고 개수 : %d\n", bingCnt);
-				if (bingCnt == num) {
-					printf("### 빙고 개수 : %d 개, 게임 끝! ###\n\n",bingCnt);
-					delBing(bing,num); // 동적 메모리 할당 해제
-					break;
-				}
+				else // 지워진 경우
+					res = 1;
 			}
 			else
+				printf("* 잘못 입력하셨습니다. 다시 입력해주세요\n");
+			if(res==1)
 				printf("\n*** 이미 지워진 숫자 입니다. 다시 입력하세요 ***\n");
 		}
 		else
