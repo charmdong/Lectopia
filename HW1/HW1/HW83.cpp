@@ -54,7 +54,9 @@ void menu(Dic *ary,int *wcnt)
 			case 3: 
 				searchData(ary, *wcnt);
 				break;
-			case 4: break;
+			case 4: 
+				delData(ary, wcnt);
+				break;
 			case 5: printf("\n<<< 프로그램을 종료합니다 >>>\n\n"); break;
 			default:printf("\n* 1~5번 중에 선택해주세요 *\n\n");
 			}
@@ -173,7 +175,7 @@ void searchData(Dic *p,int wcnt)
 
 void delData(Dic *p, int *wcnt) // 삭제시 앞으로 땡기는 부분 추가해야함
 {
-	int i;
+	int i,j;
 	while (1)
 	{
 		char del[MAX_WORD] = { 0 };
@@ -191,19 +193,23 @@ void delData(Dic *p, int *wcnt) // 삭제시 앞으로 땡기는 부분 추가해야함
 				scanf("%c", &choice);
 				if (choice == 'y')
 				{
-					printf("  삭제되었습니다.\n");
+					for (j = i + 1; j < *wcnt; j++)
+					{
+						p[i] = p[j];
+					}
+					printf("  삭제되었습니다.\n\n");
 					flush();
-					*wcnt--;
+					(*wcnt)--;
 				}
 				else {
-					printf("  삭제가 취소되었습니다.\n");
+					printf("  삭제가 취소되었습니다.\n\n");
 					flush();
 					break;
 				}
 			}
 		}
 		if (i == *wcnt)
-			printf("  NOT FOUND!!!\n");
+			printf("  NOT FOUND!!!\n\n");
 	}
 }
 
